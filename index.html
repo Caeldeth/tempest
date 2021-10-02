@@ -41,7 +41,7 @@
                             </h2>
                             <div class="input-group mb-3">
                                 <input id="search-input" type="text" class="form-control" placeholder="Enter a city..."
-                                    aria-label="City to search for" arai-describedby="search-button"></input>
+                                    aria-label="City to search for" aria-describedby="search-button"></input>
                                 <div class="input-group-append">
                                     <button id="search-button" type="button"
                                         class="btn btn-outline-secondary">Search</button>
@@ -81,34 +81,19 @@
                 <div class="col-8" id="city-grid">
                     <div class="row">
                         <div class="col-12 two-div city-result">
-                            <h2 id="city-name">
-                                City Name
-                                <span id="city-date"></span>
-                                <span id="city-icon"></span>
-                            </h2>
-                            <h3 id="city-loc">
-                                <span id="city-name"></span>
-                                <span id="city-state"></span>
-                                <span id="city-country"></span>
-                                <span id="city-lat"></span>
-                                <span id="city-lon"></span>
-                            </h3>
-                            <p id="temp city-detail">
-                                Temp:
-                                <span id="temp-result"></span>
-                            </p>
-                            <p id="wind city-detail">
-                                Wind:
-                                <span id="wind-result"></span>
-                            </p>
-                            <p id="humidity city-detail">
-                                Humidity:
-                                <span id="humidity-result"></span>
-                            </p>
-                            <p id="uv-label city-detail">
-                                UV Index:
-                                <span id="uv-result"></span>
-                            </p>
+                            <div id="title-holder">
+                                <h2 id="city-name"> </h2>
+                                <div id="weather-icon-holder">
+                                    <img id="city-icon" src="" />
+                                </div>
+                                <h4 id="city-loc"></h3>
+                            </div>
+                            <div id="deets-holder">
+                                <div id="temp-result"></div>
+                                <div id="wind-result"></div>
+                                <div id="humidity-result"></div>
+                                <div id="uv-label-result"></div>
+                            </div>
                         </div>
                         <div id="weather-grid" class="col-12 two-div">
                             <div class="row mb-12">
