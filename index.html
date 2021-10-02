@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+        integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@200&family=Righteous&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>&#9729; Tempest</title>
+</head>
+
+<body>
+    <header class="jumbotron">
+        <h1 class="display-3">
+            <span>
+                <img style="height: 60px; width: 80px;" class="mb-2" src="./assets/images/tempest.png" />
+            </span>
+            Tempest Weather App
+        </h1>
+    </header>
+    <main>
+        <div class="container-fluid px-lg-5">
+            <div class="row text-center">
+                <p id="error-msg" class="justify-content-center"></p>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-12 two-div">
+                            <h2 class="header">
+                                Search for a City:
+                            </h2>
+                            <div class="input-group mb-3">
+                                <input id="search-input" type="text" class="form-control" placeholder="Enter a city..."
+                                    aria-label="City to search for" arai-describedby="search-button"></input>
+                                <div class="input-group-append">
+                                    <button id="search-button" type="button"
+                                        class="btn btn-outline-secondary">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 two-div" id="history-grid">
+                            <h2 class="history-box">
+                                <div class="row d-flex justify-content-center mt-1 mb-1">
+                                    <button id="search-1" class="p-3 btn btn-secondary hist-button">search-1</button>
+                                </div>
+                                <div class="row d-flex justify-content-center mb-1">
+                                    <button id="search-2" class="p-3 btn btn-secondary hist-button">search-2</button>
+                                </div>
+                                <div class="row d-flex justify-content-center mb-1">
+                                    <button id="search-3" class="p-3 btn btn-secondary hist-button">search-3</button>
+                                </div>
+                                <div class="row d-flex justify-content-center mb-1">
+                                    <button id="search-4" class="p-3 btn btn-secondary hist-button">search-4</button>
+                                </div>
+                                <div class="row d-flex justify-content-center mb-1">
+                                    <button id="search-5" class="p-3 btn btn-secondary hist-button">search-5</button>
+                                </div>
+                                <div class="row d-flex justify-content-center mb-1">
+                                    <button id="search-6" class="p-3 btn btn-secondary hist-button">search-6</button>
+                                </div>
+                                <div class="row d-flex justify-content-center mb-1">
+                                    <button id="search-7" class="p-3 btn btn-secondary hist-button">search-7</button>
+                                </div>
+                                <div class="row d-flex justify-content-center mb-1">
+                                    <button id="search-8" class="p-3 btn btn-secondary hist-button">search-8</button>
+                                </div>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8" id="city-grid">
+                    <div class="row">
+                        <div class="col-12 two-div city-result">
+                            <h2 id="city-name">
+                                City Name
+                                <span id="city-date"></span>
+                                <span id="city-icon"></span>
+                            </h2>
+                            <h3 id="city-loc">
+                                <span id="city-name"></span>
+                                <span id="city-state"></span>
+                                <span id="city-country"></span>
+                                <span id="city-lat"></span>
+                                <span id="city-lon"></span>
+                            </h3>
+                            <p id="temp city-detail">
+                                Temp:
+                                <span id="temp-result"></span>
+                            </p>
+                            <p id="wind city-detail">
+                                Wind:
+                                <span id="wind-result"></span>
+                            </p>
+                            <p id="humidity city-detail">
+                                Humidity:
+                                <span id="humidity-result"></span>
+                            </p>
+                            <p id="uv-label city-detail">
+                                UV Index:
+                                <span id="uv-result"></span>
+                            </p>
+                        </div>
+                        <div id="weather-grid" class="col-12 two-div">
+                            <div class="row mb-12">
+                                <h2 class="forecast-box">
+                                    5-Day Forecast:
+                                </h2>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <article id="weather-card" class="weather-card">
+                                        <p id="card-date">date</p>
+                                        <p id="card-icon">icon</p>
+                                        <p id="card-temp">temp</p>
+                                        <p id="card-wind">wind</p>
+                                        <p id="card-humidity">humidity</p>
+                                    </article>
+                                </div>
+                                <div class="col">
+                                    <article id="weather-card" class="weather-card">
+                                        <p id="card-date">date</p>
+                                        <p id="card-icon">icon</p>
+                                        <p id="card-temp">temp</p>
+                                        <p id="card-wind">wind</p>
+                                        <p id="card-humidity">humidity</p>
+                                    </article>
+                                </div>
+                                <div class="col">
+                                    <article id="weather-card" class="weather-card">
+                                        <p id="card-date">date</p>
+                                        <p id="card-icon">icon</p>
+                                        <p id="card-temp">temp</p>
+                                        <p id="card-wind">wind</p>
+                                        <p id="card-humidity">humidity</p>
+                                    </article>
+                                </div>
+                                <div class="col">
+                                    <article id="weather-card" class="weather-card">
+                                        <p id="card-date">date</p>
+                                        <p id="card-icon">icon</p>
+                                        <p id="card-temp">temp</p>
+                                        <p id="card-wind">wind</p>
+                                        <p id="card-humidity">humidity</p>
+                                    </article>
+                                </div>
+                                <div class="col">
+                                    <article id="weather-card" class="weather-card">
+                                        <p id="card-date">date</p>
+                                        <p id="card-icon">icon</p>
+                                        <p id="card-temp">temp</p>
+                                        <p id="card-wind">wind</p>
+                                        <p id="card-humidity">humidity</p>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

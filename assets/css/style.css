@@ -1,0 +1,60 @@
+:root {
+    --primary-color:hsl(210, 90%, 32%);
+    --info-color:hsl(163, 7%, 21%);
+    --success-color:hsl(119, 41%, 55%);
+    --warning-color:hsl(44, 72%, 50%);
+    --danger-color:hsl(4, 90%, 58%);
+    --background-color:hsl(30, 23%, 90%);
+    --text-color:hsl(245, 16%, 16%);
+    --secondary-color:hsl(170, 17%, 55%);
+    --tertiary-color:hsl(111, 53%, 66%);
+    --quaternary-color:hsl(111, 98%, 26%);
+  }
+
+body {
+    font-family: 'Public Sans', sans-serif;
+    font-weight: bold;
+}
+
+h2 {
+    font-family: 'Public Sans', sans-serif;
+    font-weight: bolder;
+}
+
+.hist-button {
+    width: 90%;
+}
+.city-result {
+    border-radius: 0;
+    border: 2px solid var(--info-color);
+}
+
+.forecast-box {
+    margin-top: 12px;
+}
+
+.history-box {
+    margin-top: 12px;
+    border-top: 2px solid var(--info-color);
+}
+
+.weather-card{ 
+    margin-top: 12px;
+    color: var(--background-color);
+    background-color: var(--primary-color);
+    margin: -5px;
+    padding-bottom: 3px;
+    padding-top: 12px;
+    padding-left: 5px;
+    padding-right: 2px;
+}
+.jumbotron {
+    text-align: center;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border-radius: 0;
+    border-bottom: 10px solid var(--info-color);
+    border-top: 10px solid var(--info-color);
+    font-family: 'Righteous', cursive;
+    margin-bottom: 12px;
+  } 
