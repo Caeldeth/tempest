@@ -1,6 +1,6 @@
 // variable declarations
 // url for "onecall"
-var weatherCall='http://api.openweathermap.org/data/2.5/onecall?'
+var weatherCall='https://api.openweathermap.org/data/2.5/onecall?'
 // excludes
 var apiExcludes= '&exclude=current,minutely,hourly,alerts'
 // api key
@@ -12,7 +12,7 @@ var apiLang='&lang=en';
 // shortcut for getting weather icon
 var weatherIcon='http://openweathermap.org/img/wn/';
 // url for current weather call to get lat/lon
-var geoCall='http://api.openweathermap.org/data/2.5/weather?q='
+var geoCall='https://api.openweathermap.org/data/2.5/weather?q='
 // create search history array
 var searchHistArray = [];
 
