@@ -218,7 +218,7 @@ function getWeather(search) {
         // show the temperature
         $('#temp-result').html("Temperature: " + temperature + " °F");
         // show the wind speed
-        $('#wind-result').html("Wind: " + windSpeed) + " MPH";
+        $('#wind-result').html("Wind: " + windSpeed + " MPH");
         // show the humidity
         $('#humidity-result').text("Humidity: " + humidity + "%");
 
