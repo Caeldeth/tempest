@@ -51,6 +51,12 @@ h2 {
     padding-left: 5px;
     padding-right: 2px;
 }
+
+.list-group-item {
+    background-color: lightgray;
+    text-align: center;
+    color: white;
+}
 .jumbotron {
     text-align: center;
     background-color: var(--primary-color);
