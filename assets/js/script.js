@@ -226,7 +226,7 @@ function getWeather(search) {
 }
 
 // local storage junk
-function saveHistory(citySearch) { //storeHistory
+function saveHistory(citySearch) { 
     // make an object to hold stuff
     var saveHistObject = {};
 
@@ -266,7 +266,7 @@ function saveHistory(citySearch) { //storeHistory
     showHistory();
 };
 
-function showHistory() { //display History
+function showHistory() { 
     var getLocalSaved = localStorage.getItem('savedHistory');
     var localSavedHist = JSON.parse(getLocalSaved);
 
@@ -286,12 +286,12 @@ function showHistory() { //display History
     return (searchHistArray = localSavedHist);
 }
 
-function makeHistory() { //create History
+function makeHistory() { 
     searchHistArray.length=0;
     localStorage.setItem('savedHistory', JSON.stringify(searchHistArray));
 }
 
-function eraseHistory() { //clear History
+function eraseHistory() { 
     $('#clear-history').on('click', function(){
         $('ul li').remove();
         $('#history-grid').addClass('invisible')
@@ -300,7 +300,7 @@ function eraseHistory() { //clear History
     });
 }
 
-function touchHistory() { //click history
+function touchHistory() { 
     $('#history-entries').on('click','li', function(){
         var histCitySearch = $(this).text();
         getWeather(histCitySearch);

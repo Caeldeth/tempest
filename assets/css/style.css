@@ -1,5 +1,5 @@
 :root {
-    --primary-color:hsl(210, 90%, 32%);
+    --primary-color:hsl(152, 55%, 40%);
     --info-color:hsl(163, 7%, 21%);
     --success-color:hsl(119, 41%, 55%);
     --warning-color:hsl(44, 72%, 50%);
@@ -8,7 +8,7 @@
     --text-color:hsl(245, 16%, 16%);
     --secondary-color:hsl(170, 17%, 55%);
     --tertiary-color:hsl(111, 53%, 66%);
-    --quaternary-color:hsl(111, 98%, 26%);
+    --quaternary-color:hsl(111, 97%, 14%);
   }
 
 body {
@@ -29,6 +29,8 @@ h2 {
 .city-result {
     border-radius: 0;
     border: 2px solid var(--info-color);
+    background-color: var(--secondary-color);
+    padding-bottom: 12px;
 }
 
 .forecast-box {
@@ -44,7 +46,7 @@ h2 {
 .weather-card{ 
     margin-top: 12px;
     color: var(--background-color);
-    background-color: var(--primary-color);
+    background-color: var(--quaternary-color);
     margin: -5px;
     padding-bottom: 3px;
     padding-top: 12px;
