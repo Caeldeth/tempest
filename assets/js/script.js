@@ -203,7 +203,7 @@ function getWeather(search) {
                 $('#card-icon-' + (c+1)).attr('src', fcastCardIcon);
                 $('#card-temp-' + (c+1)).text('Temp: ' + Math.floor(fcastCardTemp) + ' °F');
                 $('#card-humidity-' + (c+1)).text('Humidity: ' + fcastCardHumid + '%');
-                $('#card-wind-' + (c+1)).text('Wind: ' + fcastCardWind + 'MPH');
+                $('#card-wind-' + (c+1)).text('Wind: ' + fcastCardWind + ' MPH');
             }
             $('#weather-grid').removeClass('invisible');
         });
