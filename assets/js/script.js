@@ -14,39 +14,41 @@ var weatherIcon='http://openweathermap.org/img/wn/';
 // url for current weather call to get lat/lon
 var geoCall='http://api.openweathermap.org/data/2.5/weather?q='
 // create search history array
-var searchHist = [];
+var searchHistArray = [];
 
 // page load, here we go
 $(document).ready(function(){
+    clickedSearch();
     // hide empty grid pieces
     $('#weather-grid').addClass('invisible');
     $('#history-grid').addClass('invisible');
     $('#city-grid').addClass('invisible');
     // reset error message
     $('#error-msg').text('');
-    //show history if any
-    // showHistory();
+    showHistory();
+    eraseHistory();
+    touchHistory();
 });
 
 // search button handling
+function clickedSearch(){
 $('#search-button').click(function(){
     citySearch = $("#search-input")
     .val().toLowerCase()
     .trim();
     console.log("City search is: " + citySearch)
 
-    if (citySearch != null) {
-    //    $('#weather-grid').removeClass('invisible');
-    //    $('#history-grid').removeClass('invisible');
-    //    $('#city-grid').removeClass('invisible');
-    //    $('#error-msg').text('');
-        
+    if (citySearch != "") {
+        $('#history-grid').removeClass('invisible');
+        $('#search-input').val('');
         getWeather(citySearch);
+        showHistory();
     } else {
         $('#error-msg').text('Please enter a valid city.');
         $('#error-msg').css('color','red');
     }
 })
+}
 
 // cheat code to enable elements for styling
 $('#jumbotron').click(function(){
@@ -72,7 +74,7 @@ $('#jumbotron').click(function(){
     );
     $('#uv-color').css('background-color', 'red');
     $('#uv-color').css('color', 'white');
-})
+}) 
 
 function getWeather(search) {
     var callWeatherUrl = 
@@ -133,6 +135,8 @@ function getWeather(search) {
             + apiLang
             + apiKey;
         
+        saveHistory(name);
+
         $.ajax({
             url: oneCallUrl,
             method: 'GET'
@@ -219,6 +223,86 @@ function getWeather(search) {
         $('#humidity-result').text("Humidity: " + humidity);
 
     });
+}
 
+// local storage junk
+function saveHistory(citySearch) { //storeHistory
+    // make an object to hold stuff
+    var saveHistObject = {};
 
+    // if there is nothing in savedHistory (local storage), save current city search to object, push to array, then json string to localstorage
+    if (searchHistArray === 0) {
+        saveHistObject['city'] = citySearch;
+        console.log(saveHistObject);
+        searchHistArray.push(saveHistObject);
+        localStorage.setItem('savedHistory', JSON.stringify(searchHistArray));
+    } else {
+        // if there is /something/ in savedHistory, see if it is already there
+        var checkHist = searchHistArray.find(
+            ({ city }) => city === citySearch
+        );
+
+        // if it isn't and we have less than five entries, add it to the array
+        if (searchHistArray.length < 5) {
+            if (checkHist === undefined) {
+                saveHistObject['city'] = citySearch;
+                searchHistArray.push(saveHistObject);
+                localStorage.setItem('savedHistory', JSON.stringify(searchHistArray));
+                };
+        // if it isn't and we have five or more entries, drop kick one out and then add to array
+            } else {
+                if (checkHist === undefined) {
+                    searchHistArray.shift();
+                    saveHistObject['city'] = citySearch;
+                    searchHistArray.push(saveHistObject);
+                    localStorage.setItem(
+                        'savedHistory', JSON.stringify(searchHistArray)
+                    );
+                }
+            }
+        }
+    $('ul li').remove();
+    //show the history
+    showHistory();
+};
+
+function showHistory() { //display History
+    var getLocalSaved = localStorage.getItem('savedHistory');
+    var localSavedHist = JSON.parse(getLocalSaved);
+
+    if (getLocalSaved === null) {
+        makeHistory();
+        getLocalSaved = localStorage.getItem('savedHistory');
+        localSavedHist = JSON.parse(getLocalSaved);
+    }
+
+    for (var i = 0; i < localSavedHist.length; i++) {
+        var histListItem = $('<li>');
+        histListItem.addClass('list-group-item');
+        histListItem.text(localSavedHist[i].city);
+        $('#history-list').prepend(histListItem);
+        $('#history-grid').removeClass('invisible');
+    }
+    return (searchHistArray = localSavedHist);
+}
+
+function makeHistory() { //create History
+    searchHistArray.length=0;
+    localStorage.setItem('savedHistory', JSON.stringify(searchHistArray));
+}
+
+function eraseHistory() { //clear History
+    $('#clear-history').on('click', function(){
+        $('ul li').remove();
+        $('#history-grid').addClass('invisible')
+        localStorage.removeItem('savedHistory');
+        makeHistory();
+    });
+}
+
+function touchHistory() { //click history
+    $('#history-entries').on('click','li', function(){
+        var histCitySearch = $(this).text();
+        getWeather(histCitySearch);
+    });
 }

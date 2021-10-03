@@ -21,9 +21,11 @@ h2 {
     font-weight: bolder;
 }
 
-.hist-button {
+.clear-button {
     width: 90%;
 }
+
+
 .city-result {
     border-radius: 0;
     border: 2px solid var(--info-color);
@@ -33,9 +35,10 @@ h2 {
     margin-top: 12px;
 }
 
-.history-box {
+.history-title {
     margin-top: 12px;
     border-top: 2px solid var(--info-color);
+    width: 98%;
 }
 
 .weather-card{ 
