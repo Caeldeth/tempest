@@ -216,11 +216,11 @@ function getWeather(search) {
         // string the country, lat and lon together
         $('#city-loc').html(country + ", Lat: " + lat + ", Lon: " + lon);
         // show the temperature
-        $('#temp-result').html("Temperature: " + temperature);
+        $('#temp-result').html("Temperature: " + temperature + " °F");
         // show the wind speed
-        $('#wind-result').html("Wind: " + windSpeed);
+        $('#wind-result').html("Wind: " + windSpeed) + " MPH";
         // show the humidity
-        $('#humidity-result').text("Humidity: " + humidity);
+        $('#humidity-result').text("Humidity: " + humidity + "%");
 
     });
 }
